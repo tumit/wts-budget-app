@@ -1,0 +1,24 @@
+<h2>requirement-entry works!</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Contact Mobile No</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (req of reqs; track req.id) {
+      <tr>
+        <td>{{ req.id }}</td>
+        <td>{{ req.title }}</td>
+        <td>{{ req.contactMobileNo }}</td>
+      </tr>
+    }
+    @empty {
+      <tr>
+        <td class="text-center" colspan="3" >Empty List</td>
+      </tr>
+    }
+  </tbody>
+</table>
