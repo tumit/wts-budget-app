@@ -1,4 +1,4 @@
-<h2>requirement-entry works!</h2>
+<h2>{{ 'requirement-entry works!' | titlecase }}</h2>
 <table class="table">
   <thead>
     <tr>
@@ -12,7 +12,7 @@
       <tr>
         <td>{{ req.id }}</td>
         <td>{{ req.title }}</td>
-        <td>{{ req.contactMobileNo }}</td>
+        <td>{{ req.contactMobileNo | mobileFormat }}</td>
       </tr>
     }
     @empty {
