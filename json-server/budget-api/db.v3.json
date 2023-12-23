@@ -1,0 +1,104 @@
+{
+  "users": [
+    {
+      "email": "user1@test.com",
+      "password": "$2a$10$zDfQJKzcqM3xYz6PvAEejOpiwhKSyGgwageBp5VBE.QvtGzJuklse",
+      "role": "U",
+      "id": 1
+    },
+    {
+      "email": "user2@test.com",
+      "password": "$2a$10$AY1JS7bUQuwduWkNga.GX.7Y6bMQLAlnjxvt5bq0qBrwMJGkEwide",
+      "role": "U",
+      "id": 2
+    },
+    {
+      "email": "admin1@test.com",
+      "password": "$2a$10$cyVHfzyvMZPX7fsaB7OSC.hMfEE7Vloc6xdr4GBEFu7vD2hnfP.pS",
+      "role": "A",
+      "id": 3
+    },
+    {
+      "email": "admin2@test.com",
+      "password": "$2a$10$DH462LKD3k4lRK4eXK8Vf.3Q5EmEkBmoAx0XPlxk4JYLnXEHNkb4q",
+      "role": "A",
+      "id": 4
+    }
+  ],
+  "requirement-types": [
+    {
+      "id": 10000,
+      "name": "Internet"
+    },
+    {
+      "id": 10002,
+      "name": "Office"
+    },
+    {
+      "id": 10003,
+      "name": "Computer"
+    }
+  ],
+  "requirements": [
+    {
+      "id": 1,
+      "title": "Gaming PC - 3 units",
+      "contactMobileNo": "0891122334",
+      "status": "APPROVED"
+    },
+    {
+      "title": "Laptop - 6 units",
+      "contactMobileNo": "0892233444",
+      "id": 2,
+      "status": "APPROVED"
+    },
+    {
+      "id": 3,
+      "title": "Server Rack - 2 units",
+      "contactMobileNo": "0893344556",
+      "status": "REJECTED"
+    },
+    {
+      "id": 4,
+      "title": "Printer - 4 units",
+      "contactMobileNo": "0894455667",
+      "status": "REJECTED"
+    },
+    {
+      "id": 5,
+      "title": "Network Switch - 6 units",
+      "contactMobileNo": "0895566778",
+      "status": "APPROVED"
+    },
+    {
+      "id": 6,
+      "title": "External Hard Drive - 8 units",
+      "contactMobileNo": "0896677889",
+      "status": "REJECTED"
+    },
+    {
+      "id": 7,
+      "title": "Graphics Card - 1 unit",
+      "contactMobileNo": "0897788990",
+      "status": "REJECTED"
+    },
+    {
+      "id": 8,
+      "title": "Monitor - 7 units",
+      "contactMobileNo": "0898899001",
+      "status": "REJECTED"
+    },
+    {
+      "id": 9,
+      "title": "Keyboard and Mouse Set - 4 units",
+      "contactMobileNo": "0899900112",
+      "status": "REJECTED"
+    },
+    {
+      "id": 10,
+      "title": "UPS - 2 units",
+      "contactMobileNo": "0890011223",
+      "status": "REJECTED"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "requirement-types": [
+    {
+      "id": 10000,
+      "name": "Internet"
+    },
+    {
+      "id": 10002,
+      "name": "Office"
+    },
+    {
+      "id": 10003,
+      "name": "Computer"
+    }
+  ],
+  "requirements": [
+    {
+      "id": 1,
+      "title": "Gaming PC - 3 units",
+      "contactMobileNo": "0891122334"
+    },
+    {
+      "title": "Laptop - 6 units",
+      "contactMobileNo": "0892233444",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "title": "Server Rack - 2 units",
+      "contactMobileNo": "0893344556"
+    },
+    {
+      "id": 4,
+      "title": "Printer - 4 units",
+      "contactMobileNo": "0894455667"
+    },
+    {
+      "id": 5,
+      "title": "Network Switch - 6 units",
+      "contactMobileNo": "0895566778"
+    },
+    {
+      "id": 6,
+      "title": "External Hard Drive - 8 units",
+      "contactMobileNo": "0896677889"
+    },
+    {
+      "id": 7,
+      "title": "Graphics Card - 1 unit",
+      "contactMobileNo": "0897788990"
+    },
+    {
+      "id": 8,
+      "title": "Monitor - 7 units",
+      "contactMobileNo": "0898899001"
+    },
+    {
+      "id": 9,
+      "title": "Keyboard and Mouse Set - 4 units",
+      "contactMobileNo": "0899900112"
+    },
+    {
+      "title": "UPS - 6 units",
+      "contactMobileNo": "0890011223",
+      "id": 10
+    },
+    {
+      "title": "Sticker 5 units",
+      "contactMobileNo": "0891234567",
+      "id": 11
+    },
+    {
+      "title": "Sticker 10 units",
+      "contactMobileNo": "0891234567",
+      "id": 12
+    },
+    {
+      "title": "Pen 10 units",
+      "contactMobileNo": "089123409",
+      "id": 13
+    },
+    {
+      "title": "Paper 12 units",
+      "contactMobileNo": "0891234567",
+      "id": 14
+    },
+    {
+      "title": "Paper 12 units",
+      "contactMobileNo": "08912341212",
+      "id": 15
+    },
+    {
+      "title": "Mouse 4 units",
+      "contactMobileNo": "0891111111",
+      "id": 16
+    }
+  ]
+}
