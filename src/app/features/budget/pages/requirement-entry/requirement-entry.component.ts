@@ -3,29 +3,50 @@ import { Component, inject } from '@angular/core';
 import { Requirement } from '../../models/requirement';
 import { RequirementService } from '../../services/requirement.service';
 import { MobileFormatPipe } from '../../../../shared/pipes/mobile-format.pipe';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-requirement-entry',
   standalone: true,
-  imports: [CommonModule, MobileFormatPipe],
+  // TODO import ReactiveFormsModule
+  imports: [RouterLink, ReactiveFormsModule, CommonModule, MobileFormatPipe, FormsModule],
   templateUrl: './requirement-entry.component.html',
   styleUrl: './requirement-entry.component.css',
 })
 export default class RequirementEntryComponent {
-
   reqService = inject(RequirementService);
 
-  // Normal
+  // * master data
   reqs: Requirement[] = [];
 
-  // Observable
-  // reqs = this.httpClient.get<Requirement[]>('http://localhost:3000/requirements');
+  // * filter data
+  filtered = this.reqs;
 
-  // Signal
-  // reqs = toSignal(this.httpClient.get<Requirement[]>('http://localhost:3000/requirements'))
+  isSmallTable = false;
+
+  // TODO new searchBox
+  searchBox = new FormControl<string>('', { nonNullable: true });
 
   constructor() {
-    this.reqService.list()
-      .subscribe((data) => (this.reqs = data));
+    this.reqService.list().subscribe((data) => {
+      this.reqs = data;
+      this.filtered = this.reqs;
+    });
+
+    // ถ้ามีการเปลี่ยนค่า
+    this.searchBox
+      .valueChanges
+      .pipe(
+        debounceTime(500),
+        distinctUntilChanged(),
+        tap(v => console.log(v))
+      )
+      .subscribe(keyword => {
+        // ให้ทำอะไร ?
+        this.filtered = this.reqs.filter(req => req.title.includes(keyword))
+      })
+
   }
 }

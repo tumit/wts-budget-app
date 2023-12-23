@@ -16,7 +16,26 @@ export class RequirementService {
 
   // () => Observable<Requirement[]>
   list(): Observable<Requirement[]> {
-    return this.httpClient.get<Requirement[]>(this.url);
+    return this.httpClient
+      .get<Requirement[]>(this.url);
+  }
+
+  // Requirement => Observable<Requirement>
+  add(req: Requirement): Observable<Requirement> {
+    return this.httpClient
+      .post<Requirement>(this.url, req);
+  }
+
+  get(id: number): Observable<Requirement> {
+    // requirements/:id
+    return this.httpClient
+      .get<Requirement>(`${this.url}/${id}`);
+  }
+
+  edit(req: Requirement, id: number): Observable<Requirement> {
+    // requirements/:id
+    return this.httpClient
+      .put<Requirement>(`${this.url}/${id}`, req);
   }
 
 }
