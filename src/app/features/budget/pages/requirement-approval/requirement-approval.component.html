@@ -1,0 +1,31 @@
+<h2>requirement-approval works!</h2>
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Contact Mobile No</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (req of reqs; track req.id) {
+    <tr>
+      <td>
+        <button (click)="onApprove(req.id!)" class="btn btn-primary">Approve</button
+        ><button (click)="onReject(req.id!)" class="btn btn-secondary ms-2">Reject</button>
+      </td>
+      <td>{{ req.id }}</td>
+      <td>{{ req.title }}</td>
+      <td>{{ req.contactMobileNo | mobileFormat }}</td>
+      <td>{{ req.status }}</td>
+    </tr>
+    } @empty {
+    <tr>
+      <td class="text-center" colspan="3">Empty List</td>
+    </tr>
+    }
+  </tbody>
+</table>

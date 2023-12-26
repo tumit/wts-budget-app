@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import { RequirementService } from '../../services/requirement.service';
 import { ActivatedRoute } from '@angular/router';
+import { RequirementStatus } from '../../models/requirement';
 
 function isTHMobile(mobileNo: string): boolean {
   return /^(06|08|09)/.test(mobileNo);
@@ -62,7 +63,7 @@ export default class RequirementFormComponent {
   reqService = inject(RequirementService);
 
   onSubmit(): void {
-    const submitReq = this.fg.getRawValue();
+    const submitReq = {...this.fg.getRawValue(), status: RequirementStatus.PENDING};
     if (this.id) {
       this.reqService.edit(submitReq, this.id).subscribe(() => this.onBack());
     } else {

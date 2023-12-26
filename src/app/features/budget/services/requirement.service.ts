@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Requirement } from '../models/requirement';
+import { Requirement, RequirementStatus } from '../models/requirement';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -36,6 +36,18 @@ export class RequirementService {
     // requirements/:id
     return this.httpClient
       .put<Requirement>(`${this.url}/${id}`, req);
+  }
+
+  approve(id: number): Observable<Requirement> {
+    // requirements/:id
+    return this.httpClient
+      .patch<Requirement>(`${this.url}/${id}`, { status: RequirementStatus.APPROVED });
+  }
+
+  reject(id: number): Observable<Requirement> {
+    // requirements/:id
+    return this.httpClient
+      .patch<Requirement>(`${this.url}/${id}`, { status: RequirementStatus.REJECTED });
   }
 
 }
