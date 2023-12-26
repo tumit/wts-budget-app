@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "v1": "json-server db.v1.json -m ./node_modules/json-server-auth"
+    "v1": "json-server db.v1.json",
+    "v2": "json-server db.v2.json",
+    "v3": "json-server-auth db.v3.json -r auth.route.json",
+    "v4": "json-server-auth db.v4.json -r auth.route.json"
   },
   "keywords": [],
   "author": "",
