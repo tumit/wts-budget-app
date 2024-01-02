@@ -1,28 +1,72 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { MobileFormatPipe } from '../../../../shared/pipes/mobile-format.pipe';
-import { Requirement } from '../../models/requirement';
+import { Requirement, RequirementStatus } from '../../models/requirement';
 import { RequirementService } from '../../services/requirement.service';
+import { BudgetPanelComponent } from '../../components/budget-panel/budget-panel.component';
+import { BudgetService } from '../../services/budget.service';
 
 @Component({
   selector: 'app-requirement-approval',
   standalone: true,
-  imports: [MobileFormatPipe],
+  imports: [MobileFormatPipe, BudgetPanelComponent],
   templateUrl: './requirement-approval.component.html',
   styleUrl: './requirement-approval.component.css',
 })
 export default class RequirementApprovalComponent {
   reqService = inject(RequirementService);
+  budgetService = inject(BudgetService)
 
   reqs: Requirement[] = [];
 
+  disableMoreApprove = false
+
   constructor() {
     this.loadRequirements();
+
+    effect(() => {
+      this.disableMoreApprove = this.budgetService.balanceState() <= 0
+    })
   }
 
   private loadRequirements(): void {
     this.reqService.list().subscribe((data) => {
       this.reqs = data;
+      this.updateUsed();
     });
+  }
+
+
+  // list => single
+  // number[] => number
+
+  // 1, 2, 3, 4
+  // reduce by init-value 0
+    // 1. fn (previous: number, current: number) => number
+    // 2. init value: 0
+  // 1. 0=>previous, 1=current => return 0+1 = 1
+  // 2. 1=>previous, 2=current => return 1+2 = 3
+  // 3. 3=>previous
+  private updateUsed(): void {
+
+      // filter APPROVED Only
+      const approvedList = this.reqs
+        .filter(req => req.status === RequirementStatus.APPROVED);
+
+      // budget of approved list
+      const budgetList = approvedList.map(req => req.budget);
+
+      // sum budgetList
+      const sumBudget = budgetList.reduce(
+        (previous, current) => { return previous + current },
+        0
+      );
+
+      // const used = this.reqs
+      //   .filter(req => req.status === RequirementStatus.APPROVED)
+      //   .map(req => req.budget)
+      //   .reduce((p, c) => p + c ,0);
+
+      this.budgetService.updateUsed(sumBudget)
   }
 
   onApprove(id: number): void {
@@ -34,6 +78,7 @@ export default class RequirementApprovalComponent {
       this.reqs = this.reqs.map((req) =>
         req.id === id ? { ...req, status: v.status } : { ...req }
       );
+      this.updateUsed();
     });
   }
 
@@ -55,6 +100,8 @@ export default class RequirementApprovalComponent {
           return req
         }
       });
+
+      this.updateUsed();
 
       // this.reqs = this.reqs.map(req => {
       //   return (req.id === id)

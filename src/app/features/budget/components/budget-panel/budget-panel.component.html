@@ -1,0 +1,50 @@
+<div class="container text-center m-3">
+  @if(budgetState(); as budget) {
+  <div class="row">
+    <div class="col">
+      <div class="alert alert-primary" role="alert">
+        Total: {{ budget.total| number : '1.2-2' }}
+      </div>
+    </div>
+    <div class="col">
+      <div class="alert alert-dark" role="alert">
+        Base Used: {{ budget.baseUsed | number : '1.2-2' }}
+      </div>
+    </div>
+    <div class="col">
+      <div class="alert alert-light" role="alert">
+        Used: {{ budget.used | number : '1.2-2' }}
+      </div>
+    </div>
+    <div class="col">
+      <div class="alert alert-success" role="alert">
+        Balance: {{ balanceState() | number : '1.2-2' }}
+      </div>
+    </div>
+  </div>
+  }
+</div>
+
+@if (editable) {
+<div class="ms-3">
+  <label class="form-label me-3" for="title">Base used budget</label>
+  <div class="form-check form-check-inline">
+    <input [formControl]="baseUsedPct" [value]="0" class="form-check-input" type="radio" id="0pct">
+    <label class="form-check-label" for="0pct">
+      0%
+    </label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input [formControl]="baseUsedPct" [value]="10" class="form-check-input" type="radio" id="10pct">
+    <label class="form-check-label" for="10pct">
+      10%
+    </label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input [formControl]="baseUsedPct" [value]="20" class="form-check-input" type="radio" id="20pct">
+    <label class="form-check-label" for="20pct">
+      20%
+    </label>
+  </div>
+</div>
+}

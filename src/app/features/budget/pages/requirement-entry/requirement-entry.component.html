@@ -2,7 +2,11 @@
 
 debug: {{ searchBox.value }}
 <hr>
-<!-- TODO binding in input -->
+
+<app-budget-panel />
+
+<hr>
+
 <input [formControl]="searchBox" placeholder="Search..." type="text">
 <hr>
 <input type="checkbox"

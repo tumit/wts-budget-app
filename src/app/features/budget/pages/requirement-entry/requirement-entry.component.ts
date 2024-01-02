@@ -6,12 +6,13 @@ import { MobileFormatPipe } from '../../../../shared/pipes/mobile-format.pipe';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
 import { RouterLink } from '@angular/router';
+import { BudgetPanelComponent } from '../../components/budget-panel/budget-panel.component';
 
 @Component({
   selector: 'app-requirement-entry',
   standalone: true,
   // TODO import ReactiveFormsModule
-  imports: [RouterLink, ReactiveFormsModule, CommonModule, MobileFormatPipe, FormsModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule, MobileFormatPipe, FormsModule, BudgetPanelComponent],
   templateUrl: './requirement-entry.component.html',
   styleUrl: './requirement-entry.component.css',
 })

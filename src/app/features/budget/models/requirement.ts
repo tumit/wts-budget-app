@@ -7,4 +7,5 @@ export interface Requirement {
   title: string;
   contactMobileNo: string;
   status: RequirementStatus;
+  budget: number;
 }

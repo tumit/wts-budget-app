@@ -63,7 +63,7 @@ export default class RequirementFormComponent {
   reqService = inject(RequirementService);
 
   onSubmit(): void {
-    const submitReq = {...this.fg.getRawValue(), status: RequirementStatus.PENDING};
+    const submitReq = {...this.fg.getRawValue(), status: RequirementStatus.PENDING, budget: 0};
     if (this.id) {
       this.reqService.edit(submitReq, this.id).subscribe(() => this.onBack());
     } else {

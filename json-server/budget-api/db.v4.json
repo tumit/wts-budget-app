@@ -44,14 +44,14 @@
       "id": 1,
       "title": "Gaming PC - 3 units",
       "contactMobileNo": "0891122334",
-      "status": "REJECTED",
+      "status": "APPROVED",
       "budget": 99000
     },
     {
       "title": "Laptop - 6 units",
       "contactMobileNo": "0892233444",
       "id": 2,
-      "status": "APPROVED",
+      "status": "REJECTED",
       "budget": 2240
     },
     {
@@ -65,7 +65,7 @@
       "id": 4,
       "title": "Printer - 4 units",
       "contactMobileNo": "0894455667",
-      "status": "APPROVED",
+      "status": "REJECTED",
       "budget": 7600
     },
     {
@@ -79,14 +79,14 @@
       "id": 6,
       "title": "External Hard Drive - 8 units",
       "contactMobileNo": "0896677889",
-      "status": "APPROVED",
+      "status": "REJECTED",
       "budget": 20000
     },
     {
       "id": 7,
       "title": "Graphics Card - 1 unit",
       "contactMobileNo": "0897788990",
-      "status": "REJECTED",
+      "status": "APPROVED",
       "budget": 700
     },
     {
@@ -107,7 +107,7 @@
       "id": 10,
       "title": "UPS - 2 units",
       "contactMobileNo": "0890011223",
-      "status": "APPROVED",
+      "status": "REJECTED",
       "budget": 50000
     }
   ],

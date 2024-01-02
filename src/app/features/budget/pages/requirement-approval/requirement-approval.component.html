@@ -1,5 +1,7 @@
 <h2>requirement-approval works!</h2>
 <hr>
+<app-budget-panel [editable]="true" />
+<hr>
 <table class="table">
   <thead>
     <tr>
@@ -8,19 +10,21 @@
       <th>Title</th>
       <th>Contact Mobile No</th>
       <th>Status</th>
+      <th>Budget</th>
     </tr>
   </thead>
   <tbody>
     @for (req of reqs; track req.id) {
     <tr>
       <td>
-        <button (click)="onApprove(req.id!)" class="btn btn-primary">Approve</button
+        <button [disabled]="disableMoreApprove" (click)="onApprove(req.id!)" class="btn btn-primary">Approve</button
         ><button (click)="onReject(req.id!)" class="btn btn-secondary ms-2">Reject</button>
       </td>
       <td>{{ req.id }}</td>
       <td>{{ req.title }}</td>
       <td>{{ req.contactMobileNo | mobileFormat }}</td>
       <td>{{ req.status }}</td>
+      <td>{{ req.budget }}</td>
     </tr>
     } @empty {
     <tr>
