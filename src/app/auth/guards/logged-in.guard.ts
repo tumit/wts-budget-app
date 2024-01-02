@@ -5,7 +5,7 @@ import { AuthService } from '../services/auth.service';
 export const loggedInGuard: CanActivateFn = (route, state) => {
   // if user is logged-in then go to destination page
   // else go to login page
-  const loggedInUser = inject(AuthService).getLoggedInUser();
+  const loggedInUser = inject(AuthService).loggedInUserState();
 
   if (loggedInUser) {
     return true;

@@ -3,7 +3,7 @@ import { CanActivateFn } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 export const adminGuard: CanActivateFn = (route, state) => {
-  const loggedInUser = inject(AuthService).getLoggedInUser();
+  const loggedInUser = inject(AuthService).loggedInUserState();
 
   if (loggedInUser?.user.role === 'A') {
     return true;
