@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {RouterTestingModule} from "@angular/router/testing";
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import RequirementFormComponent from './requirement-form.component';
 
 describe('RequirementFormComponent', () => {
@@ -8,7 +9,7 @@ describe('RequirementFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RequirementFormComponent]
+      imports: [HttpClientTestingModule, RouterTestingModule, RequirementFormComponent]
     })
     .compileComponents();
 

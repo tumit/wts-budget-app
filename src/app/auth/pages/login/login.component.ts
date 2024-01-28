@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule]
 })
-export class LoginComponent {
+export default class LoginComponent {
 
   router = inject(Router)
   route = inject(ActivatedRoute)

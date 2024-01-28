@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { BudgetPanelComponent } from './budget-panel.component';
 
@@ -8,10 +9,10 @@ describe('BudgetPanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BudgetPanelComponent]
+      imports: [HttpClientTestingModule, BudgetPanelComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(BudgetPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

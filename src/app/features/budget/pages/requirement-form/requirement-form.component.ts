@@ -2,16 +2,14 @@ import { CommonModule, JsonPipe, Location } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
   AbstractControl,
-  FormControl,
   NonNullableFormBuilder,
   ReactiveFormsModule,
   ValidationErrors,
-  Validators,
-  FormGroup,
+  Validators
 } from '@angular/forms';
-import { RequirementService } from '../../services/requirement.service';
 import { ActivatedRoute } from '@angular/router';
 import { RequirementStatus } from '../../models/requirement';
+import { RequirementService } from '../../services/requirement.service';
 
 function isTHMobile(mobileNo: string): boolean {
   return /^(06|08|09)/.test(mobileNo);
