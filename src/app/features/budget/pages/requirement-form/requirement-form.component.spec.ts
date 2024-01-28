@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequirementFormComponent } from './requirement-form.component';
+import RequirementFormComponent from './requirement-form.component';
 
 describe('RequirementFormComponent', () => {
   let component: RequirementFormComponent;
@@ -11,7 +11,7 @@ describe('RequirementFormComponent', () => {
       imports: [RequirementFormComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(RequirementFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

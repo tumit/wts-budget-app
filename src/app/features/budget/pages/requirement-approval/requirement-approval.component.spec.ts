@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RequirementApprovalComponent } from './requirement-approval.component';
+import RequirementApprovalComponent from './requirement-approval.component';
 
 describe('RequirementApprovalComponent', () => {
   let component: RequirementApprovalComponent;
@@ -11,7 +11,7 @@ describe('RequirementApprovalComponent', () => {
       imports: [RequirementApprovalComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(RequirementApprovalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
