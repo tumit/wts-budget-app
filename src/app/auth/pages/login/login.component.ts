@@ -19,8 +19,10 @@ export default class LoginComponent {
 
   authService = inject(AuthService)
 
-  email = this.fb.control('admin2@test.com')
-  password = this.fb.control('bestPassw0rd')
+  // email = this.fb.control('admin2@test.com')
+  // password = this.fb.control('bestPassw0rd')
+  email = this.fb.control('')
+  password = this.fb.control('')
 
   fg = this.fb.group({
     email: this.email,
@@ -33,17 +35,10 @@ export default class LoginComponent {
     this.authService.login(this.fg.getRawValue()).subscribe({
       next: (v) => {
         this.authService.setLoggedInUser(v);
-
-        // if (this.route.snapshot.queryParamMap.get('returnUrl')) {
-        //   returnUrl = this.route.snapshot.queryParamMap.get('returnUrl')
-        // } else {
-        //   returnUrl = '/'
-        // }
         const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
         this.router.navigate([returnUrl]);
       },
       error: (e) => {
-        console.log('e', e)
         this.errorMessage = e.error;
       },
     });
