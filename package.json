@@ -8,6 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:watch": "ng test --watch",
+    "test:coverage": "ng test --coverage",
+    "test:wc": "ng test --watch --coverage",
     "serve:ssr:wts-budget-app": "node dist/wts-budget-app/server/server.mjs"
   },
   "private": true,
