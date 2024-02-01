@@ -1,7 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+
 import RequirementEntryComponent from './requirement-entry.component';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+
 
 describe('RequirementEntryComponent', () => {
   let component: RequirementEntryComponent;
@@ -9,7 +11,11 @@ describe('RequirementEntryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientTestingModule, RequirementEntryComponent]
+      imports: [RequirementEntryComponent],
+      providers: [
+        provideHttpClient(),
+        provideRouter([])
+      ]
     })
     .compileComponents();
 

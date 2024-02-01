@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import RequirementApprovalComponent from './requirement-approval.component';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('RequirementApprovalComponent', () => {
   let component: RequirementApprovalComponent;
@@ -8,7 +8,10 @@ describe('RequirementApprovalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RequirementApprovalComponent]
+      imports: [RequirementApprovalComponent],
+      providers: [
+        provideHttpClient()
+      ]
     })
     .compileComponents();
 
