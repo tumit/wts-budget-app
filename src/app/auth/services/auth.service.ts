@@ -1,6 +1,6 @@
 import { Injectable, PLATFORM_ID, afterNextRender, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { LoggedInUser, Login } from '../models/user';
 
@@ -45,6 +45,7 @@ export class AuthService {
     return loggedInUser ? JSON.parse(loggedInUser) as LoggedInUser : null;
   }
 
+  // Login => Observable<LoggedInUser>
   login(login: Login): Observable<LoggedInUser> {
     const url = 'http://localhost:3000/login';
     return this.httpClient.post<LoggedInUser>(url, login);

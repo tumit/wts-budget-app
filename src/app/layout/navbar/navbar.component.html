@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/">Budget App</a>
+    <a data-testid="brand" class="navbar-brand" routerLink="/">Budget App</a>
     <button
       (click)="isCollapse = !isCollapse"
       class="navbar-toggler"
@@ -19,7 +19,7 @@
           >
         </li>
       </ul>
-      <span class="navbar-text">
+      <span data-testid="loggedInUser"  class="navbar-text">
         <!-- @if (loggedInUser) {
           {{ loggedInUser.user.email }}
           | <small role="button">Logout</small>
@@ -29,7 +29,7 @@
 
         @if (loggedInUserState(); as loggedInUser) {
           {{ loggedInUser.user.email }}
-          | <small (click)="onLogout()" role="button">Logout</small>
+          | <small data-testid="logout" (click)="onLogout()" role="button">Logout</small>
         }
         @else {
           anonymous
